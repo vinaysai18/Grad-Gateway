@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GradGateway - Student Dashboard</title>
+
+<link rel="stylesheet" href="Student.css">
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div>
+        <img src="logo.png" class="logo">
+    </div>
+
+    <div class="nav-right">
+        <button class="nav-btn active" onclick="showSection('home', this)">Home</button>
+        <button class="nav-btn" onclick="showSection('jobs', this)">View Jobs</button>
+        <button class="nav-btn" onclick="showSection('applied', this)">Applied Jobs</button>
+        <button class="nav-btn" onclick="showSection('profile', this)">Profile</button>
+        <button class="logout" onclick="window.location.href='Login_page.html'">Logout</button>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- HOME -->
+<div id="home" class="section active">
+    <div class="card">
+        <h2>Welcome Student</h2>
+        <p>Explore jobs and track your applications.</p>
+    </div>
+
+    <div class="card">
+        <h3>Quick Stats</h3>
+        <p>Jobs Available: 6</p>
+        <p>Applications Sent: <span id="applicationCount">0</span></p>
+    </div>
+</div>
+
+<!-- JOBS -->
+<div id="jobs" class="section">
+    <h2>Available Jobs</h2>
+
+    <div class="jobs-container">
+
+        <div class="job-card">
+            <h3>Software Developer</h3>
+            <p>Infosys - Hyderabad</p>
+            <button onclick="viewJob('Software Developer','Infosys','Hyderabad','5 LPA','Develop applications using Java and Spring Boot. Strong DSA required.')">View Details</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Frontend Developer</h3>
+            <p>TCS - Bangalore</p>
+            <button onclick="viewJob('Frontend Developer','TCS','Bangalore','4 LPA','Build responsive UI using HTML, CSS, JS and React.')">View Details</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Data Analyst</h3>
+            <p>Wipro - Chennai</p>
+            <button onclick="viewJob('Data Analyst','Wipro','Chennai','4.5 LPA','Analyze data using Python, SQL and Power BI.')">View Details</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Cloud Engineer</h3>
+            <p>Accenture - Pune</p>
+            <button onclick="viewJob('Cloud Engineer','Accenture','Pune','6 LPA','Work on AWS/Azure deployment and DevOps tools.')">View Details</button>
+        </div>
+
+        <div class="job-card">
+            <h3>AI Engineer</h3>
+            <p>Capgemini - Noida</p>
+            <button onclick="viewJob('AI Engineer','Capgemini','Noida','7 LPA','Build ML models using Python and TensorFlow.')">View Details</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Cyber Security Analyst</h3>
+            <p>HCL - Mumbai</p>
+            <button onclick="viewJob('Cyber Security Analyst','HCL','Mumbai','5.5 LPA','Monitor security threats and perform vulnerability testing.')">View Details</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- APPLIED -->
+<div id="applied" class="section">
+    <div class="card">
+        <h2>Applied Jobs</h2>
+        <ul id="appliedList">
+            <li>No applications yet</li>
+        </ul>
+    </div>
+</div>
+
+<!-- PROFILE -->
+<div id="profile" class="section">
+    <div class="card">
+        <h2>Your Profile</h2>
+        <p><strong>Name:</strong> Kiran</p>
+        <p><strong>Branch:</strong> CSE</p>
+        <p><strong>Email:</strong> chakalikiran340@gmail.com</p>
+    </div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="jobModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p><strong>Company:</strong> <span id="modalCompany"></span></p>
+        <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+        <p><strong>Package:</strong> <span id="modalPackage"></span></p>
+        <p><strong>Description:</strong></p>
+        <p id="modalDescription"></p>
+        <button onclick="applyJob()">Apply Now</button>
+    </div>
+</div>
+
+<div class="footer">
+    <p>GradGateway - Official Placement Portal</p>
+</div>
+
+<script src="Student.js"></script>
+
+</body>
+</html>

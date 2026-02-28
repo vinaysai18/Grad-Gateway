@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GradGateway - Employer Dashboard</title>
+
+<link rel="stylesheet" href="Employee.css">
+</head>
+<body>
+
+<div class="navbar">
+    <img src="logo.png" class="logo">
+
+    <div class="nav-links">
+        <button class="nav-btn" onclick="showSection('home')">Home</button>
+        <button class="nav-btn" onclick="showSection('postJob')">Post a Job</button>
+        <button class="nav-btn" onclick="showSection('jobs')">View Posted Jobs</button>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="main-content">
+
+<div id="home" class="section active">
+    <h2>Welcome to GradGateway Employer Dashboard</h2>
+
+    <div class="card">
+        <h3>About Portal</h3>
+        <p>GradGateway is the official placement portal of RGUKT RK Valley. Employers can post job opportunities and manage hiring efficiently.</p>
+    </div>
+
+    <div class="card">
+        <h3>Available Departments</h3>
+        <ul>
+            <li>Computer Science & Engineering (CSE)</li>
+            <li>Electronics & Communication (ECE)</li>
+            <li>Civil Engineering</li>
+            <li>Mechanical Engineering</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Placement Statistics</h3>
+        <p>Total Companies Visited: 120+</p>
+        <p>Highest Package: 18 LPA</p>
+        <p>Average Package: 6.5 LPA</p>
+        <p>Placement Rate: 85%</p>
+    </div>
+</div>
+
+<div id="postJob" class="section">
+    <h2>Post a Job Opportunity</h2>
+
+    <div class="card">
+        <input type="text" id="company" placeholder="Company Name">
+        <input type="text" id="role" placeholder="Job Role">
+        <input type="text" id="package" placeholder="Package (e.g. 6 LPA)">
+        <textarea id="description" placeholder="Job Description"></textarea>
+        <button class="submit-btn" onclick="addJob()">Submit Job</button>
+    </div>
+</div>
+
+<div id="jobs" class="section">
+    <h2>Posted Jobs</h2>
+    <div id="jobList"></div>
+</div>
+
+</div>
+
+<div class="footer">
+    <p><strong>GradGateway</strong> - Official Placement Portal</p>
+</div>
+
+<script src="Employee.js"></script>
+
+</body>
+</html>
