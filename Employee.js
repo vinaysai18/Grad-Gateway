@@ -6,7 +6,7 @@ function showSection(id){
 }
 
 function logout(){
-    window.location.href="Login_page.html";
+    window.location.href="login.html";
 }
 
 function addJob(){

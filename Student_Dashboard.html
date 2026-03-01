@@ -5,6 +5,7 @@
 <title>GradGateway - Student Dashboard</title>
 
 <link rel="stylesheet" href="Student.css">
+
 </head>
 
 <body>
@@ -17,19 +18,17 @@
         <button class="nav-btn" onclick="showSection('jobs',this)">View Jobs</button>
         <button class="nav-btn" onclick="showSection('applied',this)">Applied Jobs</button>
         <button class="nav-btn" onclick="showSection('profile',this)">Profile</button>
-        <button class="logout">Logout</button>
+        <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
 </div>
 
 <div class="main-content">
 
-<!-- HOME -->
 <div id="home" class="section active">
     <h2>Welcome Student</h2>
     <p>Use View Jobs to explore opportunities and apply.</p>
 </div>
 
-<!-- VIEW JOBS -->
 <div id="jobs" class="section">
     <h2>Available Jobs</h2>
 
@@ -56,7 +55,6 @@
     </div>
 </div>
 
-<!-- APPLIED JOBS -->
 <div id="applied" class="section">
     <h2>My Applications</h2>
 
@@ -80,7 +78,6 @@
     <div id="appliedList"></div>
 </div>
 
-<!-- PROFILE -->
 <div id="profile" class="section">
     <h2>My Profile</h2>
     <p><strong>Name:</strong> Kiran</p>
@@ -100,7 +97,9 @@
         <p><strong>Package:</strong> <span id="modalPackage"></span></p>
         <p><strong>Description:</strong></p>
         <p id="modalDesc"></p>
+
         <button id="applyButton" class="apply-btn" onclick="applyJob()">Apply Now</button>
+        <p id="successMsg">✓ Application Submitted Successfully</p>
     </div>
 </div>
 

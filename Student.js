@@ -9,6 +9,10 @@ function showSection(id,btn){
     btn.classList.add("active");
 }
 
+function logout(){
+    window.location.href="login.html"
+}
+
 function openModal(title,company,location,pack,desc){
     document.getElementById("modalTitle").innerText=title;
     document.getElementById("modalCompany").innerText=company;
@@ -21,13 +25,15 @@ function openModal(title,company,location,pack,desc){
     let btn=document.getElementById("applyButton");
 
     if(appliedJobs.includes(currentJob)){
-        btn.innerText="Applied";
+        btn.innerText="Applied ✓";
         btn.classList.add("disabled");
         btn.disabled=true;
+        document.getElementById("successMsg").style.display="block";
     }else{
         btn.innerText="Apply Now";
         btn.classList.remove("disabled");
         btn.disabled=false;
+        document.getElementById("successMsg").style.display="none";
     }
 
     document.getElementById("jobModal").style.display="block";
@@ -38,20 +44,20 @@ function closeModal(){
 }
 
 function applyJob(){
+
     if(appliedJobs.includes(currentJob)){
-        alert("Already Applied!");
         return;
     }
 
     appliedJobs.push(currentJob);
     document.getElementById("totalCount").innerText = appliedJobs.length;
 
-    alert("Application Submitted Successfully!");
-
     let btn=document.getElementById("applyButton");
-    btn.innerText="Applied";
+    btn.innerText="Applied ✓";
     btn.classList.add("disabled");
     btn.disabled=true;
+
+    document.getElementById("successMsg").style.display="block";
 
     let row=document.createElement("div");
     row.className="applied-row";
