@@ -12,10 +12,11 @@
 <div class="navbar">
     <img src="logo.png" class="logo">
 
-    <div class="nav-links">
+<div class="nav-links">
         <button class="nav-btn" onclick="showSection('home')">Home</button>
         <button class="nav-btn" onclick="showSection('postJob')">Post a Job</button>
         <button class="nav-btn" onclick="showSection('jobs')">View Posted Jobs</button>
+        <button class="nav-btn" onclick="showSection('profile')">Profile</button>
         <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
 </div>
@@ -23,47 +24,166 @@
 <div class="main-content">
 
 <div id="home" class="section active">
-    <h2>Welcome to GradGateway Employer Dashboard</h2>
-
-    <div class="card">
-        <h3>About Portal</h3>
-        <p>GradGateway is the official placement portal of RGUKT RK Valley. Employers can post job opportunities and manage hiring efficiently.</p>
-    </div>
-
-    <div class="card">
-        <h3>Available Departments</h3>
-        <ul>
-            <li>Computer Science & Engineering (CSE)</li>
-            <li>Electronics & Communication (ECE)</li>
-            <li>Civil Engineering</li>
-            <li>Mechanical Engineering</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>Placement Statistics</h3>
-        <p>Total Companies Visited: 120+</p>
-        <p>Highest Package: 18 LPA</p>
-        <p>Average Package: 6.5 LPA</p>
-        <p>Placement Rate: 85%</p>
+    <h2 class="section-title">Welcome to GradGateway</h2>
+    
+    <div class="home-content">
+        <div class="home-welcome-card">
+            <h3>Employer Dashboard</h3>
+            <p>Post job opportunities and connect with talented students from RGUKT RK Valley. Manage your hiring process efficiently.</p>
+            <button class="home-cta-btn" onclick="document.querySelectorAll('.nav-btn')[1].click()">Post a Job</button>
+        </div>
+        
+        <div class="home-stats-row">
+            <div class="home-stat-card">
+                <span class="stat-number">120+</span>
+                <span class="stat-text">Total Companies</span>
+            </div>
+            <div class="home-stat-card">
+                <span class="stat-number">500+</span>
+                <span class="stat-text">Students Placed</span>
+            </div>
+            <div class="home-stat-card">
+                <span class="stat-number">18</span>
+                <span class="stat-text">LPA Highest Package</span>
+            </div>
+        </div>
+        
+        <div class="home-info-grid">
+            <div class="info-card">
+                <h4>📋 Quick Links</h4>
+                <ul>
+                    <li><a href="#" onclick="document.querySelectorAll('.nav-btn')[1].click()">Post New Job</a></li>
+                    <li><a href="#" onclick="document.querySelectorAll('.nav-btn')[2].click()">View Posted Jobs</a></li>
+                    <li><a href="#" onclick="document.querySelectorAll('.nav-btn')[3].click()">Company Profile</a></li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h4>💡 Hiring Tips</h4>
+                <ul class="tips-list">
+                    <li>Provide detailed job descriptions</li>
+                    <li>Include competitive salary packages</li>
+                    <li>Specify clear eligibility criteria</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="home-notice">
+            <h4>Notice</h4>
+            <p>Ensure all job postings comply with institute placement guidelines. Contact the TPO for any assistance.</p>
+        </div>
     </div>
 </div>
 
 <div id="postJob" class="section">
-    <h2>Post a Job Opportunity</h2>
+    <h2 class="section-title">Post a Job Opportunity</h2>
 
-    <div class="card">
-        <input type="text" id="company" placeholder="Company Name">
-        <input type="text" id="role" placeholder="Job Role">
-        <input type="text" id="package" placeholder="Package (e.g. 6 LPA)">
-        <textarea id="description" placeholder="Job Description"></textarea>
-        <button class="submit-btn" onclick="addJob()">Submit Job</button>
+    <div class="post-job-container">
+        <form class="job-form" onsubmit="addJob(); return false;">
+            <div class="form-group">
+                <label>Company Name</label>
+                <input type="text" id="company" placeholder="Enter company name" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Job Role</label>
+                <input type="text" id="role" placeholder="Enter job role" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Package</label>
+                    <input type="text" id="package" placeholder="e.g. 6 LPA">
+                </div>
+                
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="location" placeholder="e.g. Hyderabad">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Job Description</label>
+                <textarea id="description" placeholder="Describe the job responsibilities and requirements"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Post Job</button>
+        </form>
     </div>
 </div>
 
 <div id="jobs" class="section">
-    <h2>Posted Jobs</h2>
-    <div id="jobList"></div>
+    <h2 class="section-title">Posted Jobs</h2>
+    
+    <div class="jobs-list-header">
+        <p>You have posted <span id="jobCount">0</span> job(s)</p>
+    </div>
+    
+    <div id="jobList" class="jobs-grid"></div>
+</div>
+
+<div id="profile" class="section">
+    <h2 class="section-title">Company Profile</h2>
+    
+    <div class="profile-wrapper">
+        <div class="profile-info-box">
+            <div class="profile-main">
+                <div class="profile-avatar-large">TC</div>
+                <div class="profile-name-section">
+                    <h3>Tech Corp Solutions</h3>
+                    <p class="profile-branch">IT Services & Consulting</p>
+                    <p class="profile-email">hr@techcorp.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile-details-grid">
+            <div class="detail-row">
+                <div class="detail-item">
+                    <span class="detail-label">Company ID</span>
+                    <span class="detail-value">EMP001</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Industry</span>
+                    <span class="detail-value">Information Technology</span>
+                </div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-item">
+                    <span class="detail-label">Location</span>
+                    <span class="detail-value">Hyderabad, Telangana</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Status</span>
+                    <span class="detail-value status-active">Verified</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="skills-section">
+            <h4>Company Details</h4>
+            
+            <div class="skills-category">
+                <div class="skills-category-label">Hiring For</div>
+                <ul class="skills-list">
+                    <li>Software Engineers</li>
+                    <li>Data Analysts</li>
+                    <li>Business Analysts</li>
+                </ul>
+            </div>
+            
+            <div class="skills-category">
+                <div class="skills-category-label">Benefits</div>
+                <ul class="skills-list">
+                    <li>Health Insurance</li>
+                    <li>Flexible Work Hours</li>
+                    <li>Learning & Development</li>
+                    <li>Performance Bonus</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>

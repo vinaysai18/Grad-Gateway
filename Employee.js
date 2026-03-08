@@ -13,6 +13,7 @@ function addJob(){
     let company=document.getElementById("company").value;
     let role=document.getElementById("role").value;
     let pack=document.getElementById("package").value;
+    let location=document.getElementById("location").value;
     let desc=document.getElementById("description").value;
 
     if(company==="" || role===""){
@@ -24,15 +25,25 @@ function addJob(){
     jobDiv.className="job-item";
     jobDiv.innerHTML=
         "<h4>"+role+"</h4>"+
-        "<p><strong>Company:</strong> "+company+"</p>"+
-        "<p><strong>Package:</strong> "+pack+"</p>"+
-        "<p>"+desc+"</p>";
+        "<div class='company-name'>🏢 "+company+"</div>"+
+        "<div class='job-details'>"+
+        "<span>💰 "+pack+"</span>"+
+        "<span>📍 "+location+"</span>"+
+        "</div>"+
+        "<div class='job-desc'>"+desc+"</div>"+
+        "<div class='posted-date'>Posted on: "+new Date().toLocaleDateString()+"</div>";
 
     document.getElementById("jobList").appendChild(jobDiv);
 
+    // Update job count
+    let count = document.getElementById("jobList").children.length;
+    document.getElementById("jobCount").innerText = count;
+
+    // Clear form
     document.getElementById("company").value="";
     document.getElementById("role").value="";
     document.getElementById("package").value="";
+    document.getElementById("location").value="";
     document.getElementById("description").value="";
 
     alert("Job Posted Successfully!");

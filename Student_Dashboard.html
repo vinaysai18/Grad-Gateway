@@ -25,8 +25,55 @@
 <div class="main-content">
 
 <div id="home" class="section active">
-    <h2>Welcome Student</h2>
-    <p>Use View Jobs to explore opportunities and apply.</p>
+    <h2 class="section-title">Welcome back, Student!</h2>
+    
+    <div class="home-content">
+        <div class="home-welcome-card">
+            <h3>Placement Season 2024-25</h3>
+            <p>Your career journey starts here. Browse through available job opportunities and apply to companies that match your skills.</p>
+            <button class="home-cta-btn" onclick="document.querySelectorAll('.nav-btn')[1].click()">Browse Jobs</button>
+        </div>
+        
+        <div class="home-stats-row">
+            <div class="home-stat-card">
+                <span class="stat-number">2</span>
+                <span class="stat-text">Companies Visiting</span>
+            </div>
+            <div class="home-stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-text">Applications</span>
+            </div>
+            <div class="home-stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-text">Interviews</span>
+            </div>
+        </div>
+        
+<div class="home-info-grid">
+            <div class="info-card">
+                <h4>📋 Quick Links</h4>
+                <ul>
+                    <li><a href="#" onclick="document.querySelectorAll('.nav-btn')[1].click()">View All Jobs</a></li>
+                    <li><a href="#" onclick="document.querySelectorAll('.nav-btn')[2].click()">My Applications</a></li>
+                    <li><a href="#" onclick="document.querySelectorAll('.nav-btn')[3].click()">My Profile</a></li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h4>💡 Tips</h4>
+                <ul class="tips-list">
+                    <li>Keep your profile updated</li>
+                    <li>Tailor your resume for each application</li>
+                    <li>Prepare for interviews in advance</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="home-notice">
+            <h4>Notice Board</h4>
+            <p>No new notices at this time. Check back regularly for updates on placement activities.</p>
+        </div>
+    </div>
 </div>
 
 <div id="jobs" class="section">
@@ -79,10 +126,75 @@
 </div>
 
 <div id="profile" class="section">
-    <h2>My Profile</h2>
-    <p><strong>Name:</strong> Kiran</p>
-    <p><strong>Branch:</strong> CSE</p>
-    <p><strong>Email:</strong> chakalikiran340@gmail.com</p>
+<h2 class="section-title">My Profile</h2>
+    
+    <div class="profile-wrapper">
+        <div class="profile-info-box">
+            <div class="profile-main">
+                <div class="profile-avatar-large"></div>
+                <div class="profile-name-section">
+                    <h3>Kiran</h3>
+                    <p class="profile-branch">Computer Science & Engineering</p>
+                    <p class="profile-email">chakalikiran340@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile-details-grid">
+            <div class="detail-row">
+                <div class="detail-item">
+                    <span class="detail-label">Roll Number</span>
+                    <span class="detail-value">21CS001</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Year</span>
+                    <span class="detail-value">Final Year</span>
+                </div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-item">
+                    <span class="detail-label">Institute</span>
+                    <span class="detail-value">GradGateway University</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Status</span>
+                    <span class="detail-value status-active">Active</span>
+                </div>
+            </div>
+        </div>
+        
+<div class="skills-section">
+            <h4>Technical Skills</h4>
+            
+            <div class="skills-category">
+                <div class="skills-category-label">Programming Languages</div>
+                <ul class="skills-list">
+                    <li>Java <span class="skill-level">Advanced</span></li>
+                    <li>Python <span class="skill-level">Intermediate</span></li>
+                    <li>JavaScript <span class="skill-level">Intermediate</span></li>
+                </ul>
+            </div>
+            
+            <div class="skills-category">
+                <div class="skills-category-label">Web Technologies</div>
+                <ul class="skills-list">
+                    <li>HTML5 <span class="skill-level">Advanced</span></li>
+                    <li>CSS3 <span class="skill-level">Intermediate</span></li>
+                    <li>SQL <span class="skill-level">Intermediate</span></li>
+                </ul>
+            </div>
+            
+            <div class="skills-category">
+                <div class="skills-category-label">Concepts</div>
+                <ul class="skills-list">
+                    <li>Data Structures</li>
+                    <li>Algorithms</li>
+                    <li>Database Management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>
