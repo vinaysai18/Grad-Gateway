@@ -35,13 +35,14 @@ let selectedRole = "student";
             formTitle.textContent = "Register";
             submitBtn.textContent = "Register";
             switchForm.textContent = "Already have an account? Login";
-            requirementsBox.style.display = "block";
+            requirementsBox.style.display = "flex";
         }
     };
 
     document.getElementById("authForm").onsubmit = function(e) {
         e.preventDefault();
 
+        const username = document.getElementById("username").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
 
@@ -65,6 +66,8 @@ let selectedRole = "student";
             alert("Only RGUKT students can login.");
             return;
         }
+
+        localStorage.setItem("username", username);
 
         if (selectedRole === "student") {
             window.location.href = "Student_Dashboard.html";

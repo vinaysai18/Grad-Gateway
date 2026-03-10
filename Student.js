@@ -1,6 +1,16 @@
 let appliedJobs=[];
 let currentJob="";
 
+document.addEventListener("DOMContentLoaded", () => {
+    let user = localStorage.getItem("username");
+    if(user) {
+        let displayUsername = document.getElementById("displayUsername");
+        let profileUsername = document.getElementById("profileUsername");
+        if(displayUsername) displayUsername.innerText = user;
+        if(profileUsername) profileUsername.innerText = user;
+    }
+});
+
 function showSection(id,btn){
     document.querySelectorAll(".section").forEach(sec=>sec.classList.remove("active"));
     document.getElementById(id).classList.add("active");

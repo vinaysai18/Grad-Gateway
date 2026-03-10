@@ -5,12 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GradGateway - Employer Dashboard</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="Employee.css">
 </head>
 <body>
 
 <div class="navbar">
-    <img src="logo.png" class="logo">
+    <div class="navbar-brand">
+        <img src="logo.png" class="logo">
+        <span class="brand-name">GradGateway</span>
+    </div>
 
 <div class="nav-links">
         <button class="nav-btn" onclick="showSection('home')">Home</button>
@@ -24,7 +30,7 @@
 <div class="main-content">
 
 <div id="home" class="section active">
-    <h2 class="section-title">Welcome to GradGateway</h2>
+    <h2 class="section-title">Welcome to GradGateway, <span id="displayUsername">Employer</span>!</h2>
     
     <div class="home-content">
         <div class="home-welcome-card">
@@ -130,7 +136,7 @@
             <div class="profile-main">
                 <div class="profile-avatar-large">TC</div>
                 <div class="profile-name-section">
-                    <h3>Tech Corp Solutions</h3>
+                    <h3 id="profileUsername">Tech Corp Solutions</h3>
                     <p class="profile-branch">IT Services & Consulting</p>
                     <p class="profile-email">hr@techcorp.com</p>
                 </div>
