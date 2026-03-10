@@ -8,11 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function showSection(id){
-    document.querySelectorAll(".section").forEach(sec=>{
+function showSection(id, btn) {
+    document.querySelectorAll(".section").forEach(sec => {
         sec.classList.remove("active");
     });
     document.getElementById(id).classList.add("active");
+
+    // Toggle active class on navbar buttons
+    if (btn) {
+        document.querySelectorAll(".nav-btn").forEach(navBtn => {
+            navBtn.classList.remove("active");
+        });
+        btn.classList.add("active");
+    }
 }
 
 function logout(){

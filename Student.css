@@ -50,6 +50,7 @@ body {
     font-weight: 800;
     background: linear-gradient(to right, #60a5fa, #a78bfa);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.5px;
 }
@@ -149,6 +150,7 @@ body {
 .section-title span {
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -248,6 +250,7 @@ body {
     font-weight: 900;
     background: linear-gradient(135deg, #1e3a8a, #8b5cf6);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 8px;
 }
@@ -393,11 +396,7 @@ body {
     border-radius: 50%;
 }
 
-.job-card:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
-    border-color: #cbd5e1;
-}
+
 
 .job-card h3 {
     margin: 0 0 12px 0;
@@ -597,6 +596,7 @@ body {
     font-weight: 900 !important;
     background: linear-gradient(135deg, #3b82f6, #06b6d4);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 0;
 }
@@ -821,12 +821,7 @@ body {
     gap: 8px;
 }
 
-.skills-list li:hover {
-    border-color: #3b82f6;
-    color: #1d4ed8;
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 12px 20px -3px rgba(59, 130, 246, 0.25);
-}
+
 
 .skill-level {
     display: inline-block;

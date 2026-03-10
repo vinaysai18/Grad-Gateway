@@ -510,10 +510,7 @@ body {
     border-radius: 20px 0 0 20px;
 }
 
-.job-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.08);
-}
+
 
 .job-item h4 {
     margin: 0 0 12px 0;
@@ -757,12 +754,7 @@ body {
     cursor: default;
 }
 
-.skills-list li:hover {
-    border-color: #3b82f6;
-    color: #1d4ed8;
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2);
-}
+
 
 /* FOOTER */
 .footer {
@@ -1042,10 +1034,7 @@ body {
     transition: all 0.2s ease;
 }
 
-.skill-tag:hover {
-    background: #e2e8f0;
-    color: #1e293b;
-}
+
 
 .action-bar {
     display: flex;

@@ -25,16 +25,16 @@ document.getElementById("authForm").onsubmit = function(e) {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    if (selectedRole === "student" && !email.endsWith("@rguktrkv.ac.in")) {
-        alert("Only RGUKT students can login.");
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
         return;
     }
 
-    localStorage.setItem("username", username);
-
-    if (selectedRole === "student") {
-        window.location.href = "Student_Dashboard.html";
-    } else {
-        window.location.href = "Employee_Dashboard.html";
+    if (selectedRole === "student" && !email.endsWith("@rguktrkv.ac.in")) {
+        alert("Student email must end with @rguktrkv.ac.in");
+        return;
     }
+
+    alert("Registration Successful! You can now login.");
+    window.location.href = "login.html";
 };
