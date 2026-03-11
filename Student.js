@@ -3,11 +3,16 @@ let currentJob="";
 
 document.addEventListener("DOMContentLoaded", () => {
     let user = localStorage.getItem("username");
+    let email = localStorage.getItem("userEmail");
     if(user) {
         let displayUsername = document.getElementById("displayUsername");
         let profileUsername = document.getElementById("profileUsername");
         if(displayUsername) displayUsername.innerText = user;
         if(profileUsername) profileUsername.innerText = user;
+    }
+    if(email) {
+        let profileEmail = document.getElementById("profileEmail");
+        if(profileEmail) profileEmail.innerText = email;
     }
 });
 

@@ -31,6 +31,7 @@ document.getElementById("authForm").onsubmit = function(e) {
     }
 
     localStorage.setItem("username", username);
+    localStorage.setItem("userEmail", email);
 
     if (selectedRole === "student") {
         window.location.href = "Student_Dashboard.html";
