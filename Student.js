@@ -9,6 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (displayUsername) displayUsername.innerText = user;
         if (profileUsername) profileUsername.innerText = user;
     }
+
+    // Add listener for resume upload UI
+    const resumeUpload = document.getElementById("resumeUpload");
+    if (resumeUpload) {
+        resumeUpload.addEventListener("change", function() {
+            const uploadText = document.querySelector(".upload-text");
+            if (this.files && this.files.length > 0) {
+                uploadText.innerText = this.files[0].name;
+            } else {
+                uploadText.innerText = "Click to upload or drag and drop";
+            }
+        });
+    }
 });
 
 function showSection(id, btn) {
@@ -40,6 +53,12 @@ function openModal(title, company, location, pack, desc) {
     document.getElementById("phone").value = "";
     document.getElementById("resumeUpload").value = "";
     document.getElementById("gradYear").value = "2025";
+    
+    // Reset resume upload UI text
+    const uploadText = document.querySelector(".upload-text");
+    if (uploadText) {
+        uploadText.innerText = "Click to upload or drag and drop";
+    }
 
     let user = localStorage.getItem("username");
     if (user) {
