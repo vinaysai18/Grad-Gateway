@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>GradGateway - Login</title>
 
@@ -11,41 +12,46 @@
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="navbar-left">
-        <img src="logo.png" alt="Logo">
-        <div class="navbar-title">GradGateway</div>
-    </div>
-</div>
-
-<!-- LOGIN CARD -->
-<div class="container">
-    <div class="card">
-
-        <h2 id="formTitle">Login</h2>
-
-        <div class="role-buttons">
-            <button type="button" id="studentBtn" class="role-btn active">Student</button>
-            <button type="button" id="employeeBtn" class="role-btn">Employer</button>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="logo.png" alt="Logo">
+            <div class="navbar-title">GradGateway</div>
         </div>
-
-        <form id="authForm">
-            <input type="text" id="username" placeholder="Enter Username" required>
-            <input type="email" id="email" placeholder="Enter Student Email" required>
-            <input type="password" id="password" placeholder="Enter Password" required>
-
-            <button type="submit" class="submit-btn" id="submitBtn">Login</button>
-        </form>
-
-        <div class="switch-link">
-            <a href="register.html" style="text-decoration: none; color: inherit;">Don't have an account? Register</a>
-        </div>
-
     </div>
-</div>
 
-<script src="login.js"></script>
+    <!-- LOGIN CARD -->
+    <div class="container">
+        <div class="card">
 
+            <h2 id="formTitle">Login</h2>
+
+            <div class="role-buttons">
+                <button type="button" id="studentBtn" class="role-btn active">Student</button>
+                <button type="button" id="employeeBtn" class="role-btn">Employer</button>
+            </div>
+
+            <form id="authForm">
+                <input type="text" id="username" placeholder="Enter Username" required>
+                <input type="email" id="email" placeholder="Enter Student Email" required>
+                <input type="password" id="password" placeholder="Enter Password" required>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Login</button>
+            </form>
+
+            <div class="switch-link">
+                <a href="register.html" style="text-decoration: none; color: inherit;">Don't have an account?
+                    Register</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2026 <strong>GradGateway</strong> | Official Placement Portal • Built for Excellence
+    </footer>
+
+    <script src="login.js"></script>
 </body>
+
 </html>

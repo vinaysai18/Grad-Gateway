@@ -7,11 +7,16 @@
     font-family: 'Inter', sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #f8fafc;
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
+    margin: 0;
     color: #1a202c;
 }
 
@@ -37,7 +42,7 @@ body {
 
 .navbar img {
     height: 48px;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
 }
 
 .navbar-title {
@@ -70,8 +75,15 @@ body {
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(15px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .card h2 {
@@ -204,4 +216,22 @@ input::placeholder {
     content: "•";
     margin-right: 8px;
     font-size: 18px;
+}
+
+/* FOOTER */
+.footer {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #94a3b8;
+    text-align: center;
+    padding: 40px;
+    margin-top: auto;
+    flex-shrink: 0;
+    font-size: 15px;
+    font-weight: 500;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer strong {
+    color: white;
 }

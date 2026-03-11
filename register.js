@@ -18,7 +18,7 @@ employeeBtn.onclick = () => {
     emailInput.placeholder = "Enter Employee Email";
 };
 
-document.getElementById("authForm").onsubmit = function(e) {
+document.getElementById("authForm").onsubmit = function (e) {
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();

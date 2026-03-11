@@ -1,3 +1,36 @@
+let applicants = {
+    'john_doe': {
+        name: 'John Doe',
+        role: 'Software Engineer',
+        email: 'john.doe@email.com',
+        phone: '+1 234 567 8900',
+        education: { university: 'MIT', degree: 'BS Computer Science', gpa: '3.8' },
+        skills: ['React', 'Node.js', 'Python', 'PostgreSQL', 'AWS'],
+        status: 'New',
+        appliedDate: 'Dec 10, 2024'
+    },
+    'sarah_smith': {
+        name: 'Sarah Smith',
+        role: 'Data Analyst',
+        email: 'sarah.s@outlook.com',
+        phone: '+1 987 654 3210',
+        education: { university: 'Stanford', degree: 'MS Data Science', gpa: '3.9' },
+        skills: ['SQL', 'Tableau', 'R', 'Statistics', 'PowerBI'],
+        status: 'Shortlisted',
+        appliedDate: 'Dec 8, 2024'
+    },
+    'mike_johnson': {
+        name: 'Mike Johnson',
+        role: 'DevOps Engineer',
+        email: 'mike.j@devops.pro',
+        phone: '+1 456 789 0123',
+        education: { university: 'UC Berkeley', degree: 'BS Information Systems', gpa: '3.7' },
+        skills: ['Docker', 'Kubernetes', 'Jenkins', 'Terraform', 'Linux'],
+        status: 'Under Review',
+        appliedDate: 'Dec 5, 2024'
+    }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     let user = localStorage.getItem("username");
     if(user) {
@@ -6,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(displayUsername) displayUsername.innerText = user;
         if(profileUsername) profileUsername.innerText = user;
     }
+    loadApplications();
 });
 
 function showSection(id, btn) {
@@ -20,6 +54,10 @@ function showSection(id, btn) {
             navBtn.classList.remove("active");
         });
         btn.classList.add("active");
+    }
+
+    if (id === 'applications') {
+        loadApplications();
     }
 }
 
@@ -68,38 +106,63 @@ function addJob(){
 
     showSection("jobs");
 }
-const mockApplicants = {
-    'john_doe': {
-        name: 'John Doe',
-        role: 'Software Engineer',
-        email: 'john.doe@email.com',
-        phone: '+1 234 567 8900',
-        education: { university: 'MIT', degree: 'BS Computer Science', gpa: '3.8' },
-        skills: ['React', 'Node.js', 'Python', 'PostgreSQL', 'AWS'],
-        status: 'New'
-    },
-    'sarah_smith': {
-        name: 'Sarah Smith',
-        role: 'Data Analyst',
-        email: 'sarah.s@outlook.com',
-        phone: '+1 987 654 3210',
-        education: { university: 'Stanford', degree: 'MS Data Science', gpa: '3.9' },
-        skills: ['SQL', 'Tableau', 'R', 'Statistics', 'PowerBI'],
-        status: 'Shortlisted'
-    },
-    'mike_johnson': {
-        name: 'Mike Johnson',
-        role: 'DevOps Engineer',
-        email: 'mike.j@devops.pro',
-        phone: '+1 456 789 0123',
-        education: { university: 'UC Berkeley', degree: 'BS Information Systems', gpa: '3.7' },
-        skills: ['Docker', 'Kubernetes', 'Jenkins', 'Terraform', 'Linux'],
-        status: 'Under Review'
+
+function loadApplications() {
+    const storedApps = JSON.parse(localStorage.getItem("jobApplications") || "[]");
+    
+    storedApps.forEach(app => {
+        if (!applicants[app.id]) {
+            applicants[app.id] = {
+                name: app.name,
+                role: app.jobTitle,
+                email: app.email,
+                phone: app.phone,
+                education: { university: 'GradGateway University', degree: 'Computer Science', gpa: '8.5' },
+                skills: ['HTML', 'CSS', 'JavaScript'],
+                status: app.status || 'New',
+                appliedDate: app.appliedDate
+            };
+        }
+    });
+
+    renderApplicantsList();
+}
+
+function renderApplicantsList() {
+    const listContainer = document.querySelector('.applicants-list');
+    if (!listContainer) return;
+
+    listContainer.innerHTML = '';
+    
+    const ids = Object.keys(applicants);
+    ids.forEach((id, index) => {
+        const app = applicants[id];
+        const initials = app.name.split(' ').map(n => n[0]).join('');
+        
+        const card = document.createElement('div');
+        card.className = `app-card`;
+        card.onclick = () => viewApplicant(id, card);
+        card.innerHTML = `
+            <div class="app-avatar">${initials}</div>
+            <div class="app-info">
+                <h4>${app.name}</h4>
+                <p>${app.role}</p>
+                <span class="app-meta">Applied ${app.appliedDate}</span>
+            </div>
+            <span class="status-badge status-${app.status.toLowerCase().replace(' ', '-')}">${app.status}</span>
+        `;
+        listContainer.appendChild(card);
+    });
+
+    // Handle initial detail view if none is active
+    if (ids.length > 0 && !document.querySelector('.app-card.active')) {
+        const firstCard = listContainer.querySelector('.app-card');
+        viewApplicant(ids[0], firstCard);
     }
-};
+}
 
 function updateApplicantStatus(id, newStatus) {
-    mockApplicants[id].status = newStatus;
+    applicants[id].status = newStatus;
     
     // Refresh the Detail View
     const activeCard = document.querySelector('.app-card.active');
@@ -109,7 +172,7 @@ function updateApplicantStatus(id, newStatus) {
     const sidebarCards = document.querySelectorAll('.app-card');
     sidebarCards.forEach(card => {
         // Find card by comparing name or using a data-id attribute (let's use name for simplicity here)
-        if (card.querySelector('h4').innerText === mockApplicants[id].name) {
+        if (card.querySelector('h4').innerText === applicants[id].name) {
             const badge = card.querySelector('.status-badge');
             badge.className = `status-badge status-${newStatus.toLowerCase().replace(' ', '-')}`;
             badge.innerText = newStatus;
@@ -136,10 +199,10 @@ function rejectApplicant(id) {
 function viewApplicant(id, element) {
     // Update active state in list
     document.querySelectorAll('.app-card').forEach(card => card.classList.remove('active'));
-    element.classList.add('active');
+    if (element) element.classList.add('active');
 
     // Update Detail View
-    const applicant = mockApplicants[id];
+    const applicant = applicants[id];
     const detailDiv = document.getElementById('applicantDetail');
     
     const initials = applicant.name.split(' ').map(n => n[0]).join('');

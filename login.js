@@ -18,7 +18,7 @@ employeeBtn.onclick = () => {
     emailInput.placeholder = "Enter Employee Email";
 };
 
-document.getElementById("authForm").onsubmit = function(e) {
+document.getElementById("authForm").onsubmit = function (e) {
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
@@ -31,7 +31,6 @@ document.getElementById("authForm").onsubmit = function(e) {
     }
 
     localStorage.setItem("username", username);
-    localStorage.setItem("userEmail", email);
 
     if (selectedRole === "student") {
         window.location.href = "Student_Dashboard.html";
